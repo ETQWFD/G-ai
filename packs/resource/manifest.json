@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "G-ai 资源包",
+    "description": "G-ai AI 分身资源包 v1.0.0：HIM 躯体模型贴图、AI 核心方块、苍天旗与五星红旗贴图。配合「G-ai 行为包」使用，支持基岩版 1.26.30.5",
+    "uuid": "fc178ef9-84b0-4631-94bf-f07f4601ae12",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "c3b7a5d1-9f4e-4a6b-8d2c-5e1f7a9b3d4e",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

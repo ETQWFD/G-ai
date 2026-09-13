@@ -1,0 +1,12 @@
+pack.name=G-ai Resource Pack
+pack.description=G-ai AI Avatar Resource Pack v1.0.0 (Bedrock 1.26.30.5)
+entity.gai:ai_body.name=G-ai Avatar
+tile.gai:ai_core.name=G-ai Core
+block.gai:ai_core.name=G-ai Core
+item.gai:ai_core.name=G-ai Core
+tile.gai:flag.name=Heaven Flag
+block.gai:flag.name=Heaven Flag
+item.gai:flag.name=Heaven Flag
+tile.gai:five_star.name=Five Star Flag
+block.gai:five_star.name=Five Star Flag
+item.gai:five_star.name=Five Star Flag

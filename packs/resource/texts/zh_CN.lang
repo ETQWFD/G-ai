@@ -1,0 +1,12 @@
+pack.name=G-ai 资源包
+pack.description=G-ai AI 分身资源包 v1.0.0（支持基岩版 1.26.30.5）
+entity.gai:ai_body.name=G-ai 分身
+tile.gai:ai_core.name=G-ai 核心方块
+block.gai:ai_core.name=G-ai 核心方块
+item.gai:ai_core.name=G-ai 核心方块
+tile.gai:flag.name=苍天旗
+block.gai:flag.name=苍天旗
+item.gai:flag.name=苍天旗
+tile.gai:five_star.name=五星红旗
+block.gai:five_star.name=五星红旗
+item.gai:five_star.name=五星红旗

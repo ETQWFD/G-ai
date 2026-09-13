@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "gai:flag",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "gai_flag",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:map_color": "#7E7E74",
+      "minecraft:geometry": "minecraft:geometry.full_block"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[49,)"
+license="MIT"
+issueTrackerURL=""
+
+[[mods]]
+modId="gai"
+version="1.0.0"
+displayName="G-ai"
+logoFile="gai_icon.png"
+description='''G-ai AI 分身模组 v1.0.0：AI 本体（HIM）、苍天旗、@AI 聊天、连接服务、导入光影、导入结构（支持自定义 AI）。'''
+
+[[dependencies.gai]]
+modId="forge"
+type="required"
+versionRange="[49,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gai]]
+modId="minecraft"
+type="required"
+versionRange="[26.2,26.3)"
+ordering="NONE"
+side="BOTH"

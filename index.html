@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G-ai · 我的世界 AI 分身助手</title>
+<meta name="description" content="G-ai：我的世界 AI 分身助手。手机悬浮窗版 + 基岩版资源/行为包 + Java 版 Fabric/Forge 模组，自定义 AI、AI 本体 HIM、苍天旗与五星红旗、永久记忆。">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  :root { --bg:#0b0f1a; --card:#131a2b; --line:#1f2942; --fg:#e5e7eb; --muted:#9ca3af; --acc:#6366f1; --acc2:#8b5cf6; --ok:#6ee7b7; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 20px 60px; }
+  header { text-align:center; padding:56px 0 10px; }
+  .logo { width:96px; height:96px; border-radius:22px; box-shadow:0 8px 30px rgba(99,102,241,.35); }
+  h1 { font-size:34px; margin-top:16px; letter-spacing:2px; }
+  .sub { color:var(--muted); margin-top:6px; font-size:15px; }
+  .ver { display:inline-block; margin-top:14px; padding:5px 16px; border:1px solid var(--line); border-radius:999px; color:var(--ok); font-size:13px; background:#0e1524; }
+  .btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+  .btn { display:inline-block; padding:12px 26px; border-radius:12px; text-decoration:none; font-size:15px; font-weight:600; transition:.2s; }
+  .btn.primary { background:linear-gradient(135deg,var(--acc),var(--acc2)); color:#fff; }
+  .btn.ghost { border:1px solid var(--line); color:var(--fg); background:rgba(255,255,255,.03); }
+  .btn:hover { transform:translateY(-2px); filter:brightness(1.1); }
+  section { margin-top:46px; }
+  h2 { font-size:22px; margin-bottom:14px; padding-left:12px; border-left:4px solid var(--acc); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:14px; }
+  .card h3 { font-size:16px; margin-bottom:8px; color:#fff; }
+  .card p, .card li { color:var(--muted); font-size:14px; }
+  .card ul { padding-left:18px; margin-top:6px; }
+  .card li { margin:3px 0; }
+  .tag { display:inline-block; font-size:12px; padding:2px 10px; border-radius:999px; margin-left:8px; vertical-align:2px; }
+  .tag.android { background:rgba(110,231,183,.15); color:var(--ok); }
+  .tag.bedrock { background:rgba(96,165,250,.15); color:#60a5fa; }
+  .tag.java { background:rgba(251,191,36,.15); color:#fbbf24; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  footer { text-align:center; color:#6b7280; font-size:13px; margin-top:60px; border-top:1px solid var(--line); padding-top:22px; }
+  code { background:#0e1524; border:1px solid var(--line); padding:2px 7px; border-radius:6px; font-size:13px; color:#c7d2fe; }
+  a { color:var(--acc2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" src="icon.png" alt="G-ai logo">
+    <h1>G-ai</h1>
+    <div class="sub">我的世界 AI 分身助手 · 自定义 AI · AI 本体 HIM · 永久记忆</div>
+    <div class="ver">最新版本 v1.0.0 · MIT License</div>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/ETQWFD/G-ai/releases/latest">下载（GitHub Releases）</a>
+      <a class="btn ghost" href="https://github.com/ETQWFD/G-ai">源代码</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>一套 AI 分身，三个平台</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>手机悬浮窗版 <span class="tag android">Android</span></h3>
+        <p>悬浮窗 · 自定义 AI · 连接游戏 · AI 建造 / AI 操控 / AI 聊天 · 导入结构 · 检查更新</p>
+      </div>
+      <div class="card">
+        <h3>基岩版资源包 <span class="tag bedrock">1.26.30.5</span></h3>
+        <p>AI 本体（HIM）实体 · 苍天旗 · 五星红旗 · AI 核心方块 · 合成配方（行为包 + 资源包整合）</p>
+      </div>
+      <div class="card">
+        <h3>Java 版模组 <span class="tag java">26.2</span></h3>
+        <p>Fabric + Forge 双加载器 · AI 本体 · 苍天旗 / 五星红旗 · @AI 聊天 · 连接服务 · 导入光影 / 结构 · 永久记忆</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>特色</h2>
+    <div class="card">
+      <ul>
+        <li><b>自定义 AI</b>：支持任意 OpenAI 兼容接口，地址 / Key / 模型一键配置，模型可自动搜索。</li>
+        <li><b>AI 本体（HIM）</b>：连接游戏后聊天框提示「苍天有眼！我乃苍天会」，AI 以 HIM 造型降临，永久存在、不可推动、免疫火焰。</li>
+        <li><b>玩家意识 + 永久记忆</b>：AI 是"正儿八经的玩家"，陪玩、帮忙、绝不毁服；对话与任务永久保存。</li>
+        <li><b>AI 建造 / AI 操控</b>：AI 可真实执行命令建造；AI 操控手机约 4 分钟后自动交还控制权。</li>
+        <li><b>国旗</b>：苍天旗（灰混凝土 + 木棍 + 黑混凝土）与五星红旗（红 / 黄混凝土 + 木棍）工作台合成。</li>
+        <li><b>导入结构 / 光影</b>：基岩版导入结构；Java 版导入结构（.nbt）与光影（shaderpacks）。</li>
+        <li><b>检查更新</b>：手机版设置页、Java 版 <code>/gai update</code> 均可检查 GitHub 最新版。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>快速开始</h2>
+    <div class="card">
+      <h3>手机版</h3>
+      <ul>
+        <li>安装 APK → 同意 MIT 许可 → 授权存储 / 悬浮窗 / 无障碍</li>
+        <li>设置中配置 AI（地址 / Key / 模型）→ 保存 → 启动悬浮窗</li>
+        <li>面板「复制连接命令」→ 游戏内发送 → AI 分身降临</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Java 版（Fabric / Forge）</h3>
+      <ul>
+        <li>放入 <code>mods/</code> → 进存档 → <code>/gai config url|key|model …</code></li>
+        <li><code>/gai start</code> 启动连接服务 → <code>/gai spawn</code> 召唤本体 → 聊天框 <b>@AI</b> 聊天</li>
+        <li><code>/gai update</code> 检查更新 · <code>/gai shader import</code> / <code>/gai structure import</code> 导入光影与结构</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    G-ai © 2026 · MIT License · <a href="https://github.com/ETQWFD/G-ai">GitHub</a> · <a href="https://github.com/ETQWFD/G-ai/releases">Releases</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "gai:five_star_recipe"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "RYR",
+      " S "
+    ],
+    "key": {
+      "R": { "item": "minecraft:red_concrete" },
+      "Y": { "item": "minecraft:yellow_concrete" },
+      "S": { "item": "minecraft:stick" }
+    },
+    "result": {
+      "item": "gai:five_star",
+      "count": 1
+    }
+  }
+}

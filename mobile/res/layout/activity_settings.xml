@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0F1220"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI 模型配置"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="支持任意 OpenAI 兼容接口（含各类中转 / 聚合 API），填写完整地址、Key 与模型名称。"
+            android:textColor="#9CA3AF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="接口完整地址"
+            android:textColor="#F3F4F6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input"
+            android:hint="https://api.example.com/v1"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#F9FAFB"
+            android:textColorHint="#6B7280"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="API Key（密钥）"
+            android:textColor="#F3F4F6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input"
+            android:hint="sk-..."
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#F9FAFB"
+            android:textColorHint="#6B7280"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="模型名称"
+            android:textColor="#F3F4F6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input"
+            android:hint="gpt-4o-mini / deepseek-chat 等"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#F9FAFB"
+            android:textColorHint="#6B7280"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnAuto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_btn_secondary"
+            android:text="自动搜索：从该 Key 中查找可用模型"
+            android:textColor="#E5E7EB"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="自动搜索会请求接口的 /models 列表，列出该密钥下全部可用模型供你选择；未找到时请手动输入。"
+            android:textColor="#8B93A7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="WebSocket 连接端口"
+            android:textColor="#F3F4F6"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input"
+            android:hint="8080"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#F9FAFB"
+            android:textColorHint="#6B7280"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI 玩家意识与永久记忆"
+                    android:textColor="#F3F4F6"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="AI 有性格、有永久记忆，连接后永久陪玩、帮你干活，绝不毁服"
+                    android:textColor="#8B93A7"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cbAware"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_btn_primary"
+            android:text="保存配置"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/saveResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#6EE7B7"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_btn_secondary"
+            android:text="检查更新（GitHub Release）"
+            android:textColor="#C7D2FE"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>
