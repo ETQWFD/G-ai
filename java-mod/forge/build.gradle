@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.gai'
+version = '1.1.0'
+
+base {
+    archivesName = 'G-ai'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def fg = '/home/user/.gradle/caches/forge_gradle'
+def modules = '/home/user/.gradle/caches/modules-2/files-2.1'
+def joined = fg + '/mcp_repo/net/minecraft/joined/26.2-20260616.103818/joined-26.2-20260616.103818.jar'
+def universal = fg + '/maven_downloader/net/minecraftforge/forge/26.2-65.1.3/forge-26.2-65.1.3-universal.jar'
+def fmlcore = fileTree(modules + '/net.minecraftforge/fmlcore').matching { include '**/fmlcore-*.jar' }.singleFile
+def fmlang  = fileTree(modules + '/net.minecraftforge/javafmllanguage').matching { include '**/javafmllanguage-*.jar' }.singleFile
+def fspi    = fileTree(modules + '/net.minecraftforge/forgespi').matching { include '**/forgespi-*.jar' }.singleFile
+def fmlload = fileTree(modules + '/net.minecraftforge/fmlloader').matching { include '**/fmlloader-*.jar' }.singleFile
+def ebus    = fileTree(modules + '/net.minecraftforge/eventbus').matching { include '**/eventbus-*.jar' }.singleFile
+def brigadier = modules + '/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar'
+def jspecify = modules + '/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar'
+def dfu = modules + '/com.mojang/datafixerupper/10.0.21/b6b2ae770c02e0c1eb90f9985b151e9085a38d0b/datafixerupper-10.0.21.jar'
+def fastutil = modules + '/it.unimi.dsi/fastutil/8.3.1/ff33b340d60b81f4c1015fa8008bb30ff0a0d53b/fastutil-8.3.1.jar'
+def slf4j = '/home/user/.gradle/caches/jars-9/2c8c160d0045e6152e8ae64070488f5f/slf4j-api-1.7.30.jar'
+def authlib = modules + '/com.mojang/authlib/9.0.75/d61056a234d5e4b272e09d59b0713f80d6c0b6af/authlib-9.0.75.jar'
+def mergetool = modules + '/net.minecraftforge/mergetool-api/1.0/589fac8080d2eb657bb37f464151abcd25524d64/mergetool-api-1.0.jar'
+
+sourceSets {
+    main {
+        java.srcDir('src/main/java')
+        java.srcDir('../common/src/main/java')
+    }
+}
+
+dependencies {
+    compileOnly files(joined, universal, fmlcore, fmlang, fspi, fmlload, ebus, brigadier, jspecify, dfu, fastutil, slf4j, authlib, mergetool)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 25
+}
+
+jar {
+    manifest {
+        attributes([
+            "Implementation-Title"   : "G-ai",
+            "Implementation-Version" : project.version,
+        ])
+    }
+    from("../common/LICENSE.txt") { into("") }
+}
