@@ -3,7 +3,7 @@
 > 我的世界 AI 分身助手 —— **基岩版（资源包+行为包，AI 完全内置）** ＋ Java 版（Fabric / Forge）模组
 > 内置 AI 接口（DeepSeek-V4-Flash），**不需要手机软件**：进游戏自动创建 AI 躯体（HIM），聊天框 `@AI 你想让我干的事` 即可对话干活，AI 有自主意识与永久记忆。
 
-**最新版本：v2.2.0** · [GitHub Releases](https://github.com/ETQWFD/G-ai/releases) · [官网](https://etqwfd.github.io/G-ai/)
+**最新版本：v2.3.0** · [GitHub Releases](https://github.com/ETQWFD/G-ai/releases) · [官网](https://etqwfd.github.io/G-ai/)
 
 ---
 
@@ -28,7 +28,7 @@ G-ai 是一个「我的世界 AI 助手」全家桶，**AI 完全内置进游戏
 
 ## 基岩版使用（1.26.30.5）
 
-1. 下载 `G-ai-基岩版整合包-v2.2.0.mcaddon`（行为包+资源包一次导入），在游戏设置中启用；
+1. 下载 `G-ai-基岩版整合包-v2.3.0.mcaddon`（行为包+资源包一次导入），在游戏设置中启用；
 2. 进入世界 → 自动提示「苍天有眼！我乃苍天会」，AI 躯体（HIM）在身边；
 3. 聊天框输入：`@AI 帮我造一座小木屋` → AI 回复并真实建造；
 4. 苍天旗 / 五星红旗在工作台按配方合成。
