@@ -1,0 +1,7 @@
+*.apk
+*.idsig
+*.jks
+build/
+.gradle/
+*.class
+.DS_Store

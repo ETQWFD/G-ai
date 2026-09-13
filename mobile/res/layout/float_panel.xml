@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/panelRoot"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_panel"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <!-- 可拖动标题栏（48dp 拖动区） -->
+    <LinearLayout
+        android:id="@+id/panelHeader"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="6dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="logo"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="G-ai 悬浮控制台"
+            android:textColor="#F9FAFB"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/panelVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/bg_version"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:text="v0.3"
+            android:textColor="#A5B4FC"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/btnCollapse"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_round_btn"
+            android:gravity="center"
+            android:text="✕"
+            android:textColor="#E5E7EB"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 拖动提示条 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="≡ 按住上方标题栏可拖动 · 点 ✕ 收起（点悬浮球可再打开）"
+        android:textColor="#8B93A7"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/wsStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_card"
+        android:padding="9dp"
+        android:text="游戏连接：未开启"
+        android:textColor="#E5E7EB"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/btnConnect"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_toggle"
+            android:checked="false"
+            android:textOff="连接游戏"
+            android:textOn="已开启连接"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnCopyCmd"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_primary"
+            android:text="复制连接命令"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/btnBuild"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_toggle"
+            android:checked="false"
+            android:textOff="AI 建造"
+            android:textOn="AI 建造中"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+
+        <ToggleButton
+            android:id="@+id/btnControl"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_toggle"
+            android:checked="false"
+            android:textOff="AI 操控(4分钟)"
+            android:textOn="AI 操控中"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnImport"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_secondary"
+            android:text="导入结构"
+            android:textColor="#E5E7EB"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnHelp"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_secondary"
+            android:text="AI 帮助"
+            android:textColor="#E5E7EB"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/controlTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="AI 操控剩余：04:00（到点自动交还控制权）"
+        android:textColor="#F87171"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/etPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_input"
+        android:hint="给 AI 的指令，如：帮我建一座小木屋"
+        android:imeOptions="actionSend"
+        android:inputType="textMultiLine"
+        android:maxLines="3"
+        android:minLines="2"
+        android:padding="9dp"
+        android:textColor="#F9FAFB"
+        android:textColorHint="#6B7280"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_btn_primary"
+        android:text="发送给 AI 执行"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+</LinearLayout>

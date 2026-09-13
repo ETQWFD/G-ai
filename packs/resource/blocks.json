@@ -1,0 +1,16 @@
+{
+  "format_version": [
+    1,
+    1,
+    0
+  ],
+  "gai:ai_core": {
+    "textures": "gai_ai_core"
+  },
+  "gai:flag": {
+    "textures": "gai_flag"
+  },
+  "gai:five_star": {
+    "textures": "gai_five_star"
+  }
+}

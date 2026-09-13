@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.gai'
+version = '2.2.0'
+
+base {
+    archivesName = 'G-ai'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def joined = '/home/user/.gradle/caches/forge_gradle/mcp_repo/net/minecraft/joined/26.2-20260616.103818/joined-26.2-20260616.103818.jar'
+def brigadier = '/home/user/.gradle/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar'
+def jspecify = '/home/user/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar'
+def dfu = '/home/user/.gradle/caches/modules-2/files-2.1/com.mojang/datafixerupper/10.0.21/b6b2ae770c02e0c1eb90f9985b151e9085a38d0b/datafixerupper-10.0.21.jar'
+def fastutil = '/home/user/.gradle/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.3.1/ff33b340d60b81f4c1015fa8008bb30ff0a0d53b/fastutil-8.3.1.jar'
+def slf4j = '/home/user/.gradle/caches/jars-9/2c8c160d0045e6152e8ae64070488f5f/slf4j-api-1.7.30.jar'
+def authlib = '/home/user/.gradle/caches/modules-2/files-2.1/com.mojang/authlib/9.0.75/d61056a234d5e4b272e09d59b0713f80d6c0b6af/authlib-9.0.75.jar'
+def tools = '/home/user/tools'
+def base = tools + '/fabric-api-base.jar'
+def fl = tools + '/fl.jar'
+def fa = tools + '/fa.jar'
+def modules = files(
+        tools + '/fabric-command-api-v2.jar',
+        tools + '/fabric-lifecycle-events-v1.jar',
+        tools + '/fabric-message-api-v1.jar',
+        tools + '/fabric-networking-api-v1.jar',
+        tools + '/fabric-object-builder-api-v1.jar',
+        tools + '/fabric-rendering-v1.jar'
+)
+
+sourceSets {
+    main {
+        java.srcDir('src/main/java')
+        java.srcDir('../common/src/main/java')
+    }
+}
+
+dependencies {
+    compileOnly files(joined, fl, fa, brigadier, jspecify, dfu, fastutil, slf4j, authlib, base)
+    compileOnly modules
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 25
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+jar {
+    from("../common/LICENSE.txt") { into("") }
+}
