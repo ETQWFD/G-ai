@@ -29,7 +29,7 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复了"A
 | `G-ai-资源包.mcpack` | 资源包 v2.3.0（HIM 躯体模型贴图 + 苍天旗/五星红旗贴图） |
 | `G-ai-网易版整合包-v2.3.0.zip` | **网易中国版整合包**（zip 内含 behavior/、resource/ 两文件夹，符合网易 Add-on 上传规范，手机版+电脑版互通） |
 | `G-ai-网易版发布文案.md` | 网易平台发布指引（作品名/简介/100 绿宝石/备注"开发者etc"/发布步骤） |
-| `G-ai-2.2.0-fabric.jar` / `G-ai-2.2.0-forge.jar` | Java 版模组（MC 26.2，Fabric + Forge，功能与基岩版一致） |
+| `G-ai-2.3.0-fabric.jar` / `G-ai-2.3.0-forge.jar` | Java 版模组（MC 26.2，Fabric + Forge，功能与基岩版一致，已修复 Block id not set 崩溃） |
 | `REPORT.md` | 本报告（含 MIT 全文） |
 
 ## 二、功能与修复清单
@@ -49,6 +49,8 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复了"A
 - 发布文案已备好：作品名「G-ai：我的世界 AI 分身助手（HIM 陪玩）」、**定价 100 绿宝石**、**备注"开发者etc"**、发布四步流程。
 
 ### 3. Java 版（26.2，Fabric + Forge，功能与基岩版一致）
+- **修复崩溃**：GaiFlagBlock 构造时通过 setId 绑定 Registry Key 再注册（修复 "Block id not set" 启动崩溃，Fabric + Forge 均已重新构建 v2.3.0）；
+- AI 躯体头顶显示名字「G-ai」（像玩家一样）；
 - 进存档自动创建 AI 躯体（HIM）+ 播报「苍天有眼！我乃苍天会」；
 - 聊天框 `@AI` 直接对话干活；按 **G** 打开悬浮控制台（配置 AI、导入光影/结构、检查更新、AI 操控 4 分钟自动交还）；
 - 永久记忆（`config/gai-memory.json`）；五星红旗与苍天旗可合成可放置。
@@ -63,6 +65,8 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复了"A
 | AI 躯体像雕像不会动 | ✅ 已修（movement + 随机走动 + 注视玩家 + 免疫伤害） |
 | 网易版加载不了 / 无法使用 | ✅ 已修（网易规范打包 + min_engine 1.20 + 实验模式说明） |
 | 国旗没有加载进去 | ✅ 已修（贴图/模型/配方/语言全量齐全） |
+| Java 版启动崩溃 Block id not set | ✅ 已修（GaiFlagBlock 传 ResourceKey + setId，先注册后使用） |
+| AI 没有名字、不像玩家 | ✅ 已修（基岩版 nameTag=G-ai，Java 版 setCustomName=G-ai） |
 
 ## 三、使用方法
 
@@ -115,7 +119,7 @@ SOFTWARE.
 
 - 基岩包：脚本语法校验通过（node --check）；实体/方块/配方/spawn_rules/manifest 全部 JSON 校验通过；.mcaddon 结构验证（行为包/资源包两文件夹 + 各自 manifest + scripts + spawn_rules）；
 - 网易包：按网易 Add-on 规范 zip（behavior/ + resource/），manifest 标注网易版、min_engine [1,20,0]；
-- Java 模组：Fabric / Forge 双 jar 编译通过（v2.2.0，本轮未改动 Java 工程）。
+- Java 模组：Fabric / Forge 双 jar（v2.3.0）编译通过（JDK 25 target，Java 25 运行）；GaiFlagBlock.class 已确认包含 setId 调用。
 
 ## 六、已知待办（诚实说明）
 
