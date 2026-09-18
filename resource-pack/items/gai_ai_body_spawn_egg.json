@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.40",
+  "minecraft:item": {
+    "description": {
+      "identifier": "gai:ai_body_spawn_egg",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "spawn_egg_gai_ai_body"
+      },
+      "minecraft:display_name": {
+        "value": "G-ai AI 分身刷怪蛋"
+      }
+    }
+  }
+}

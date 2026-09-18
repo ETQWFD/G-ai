@@ -1,0 +1,11 @@
+pack.name=G-ai Resource Pack
+pack.description=G-ai AI Avatar Resource Pack v1.6.0 (Bedrock 1.26.30.5)
+entity.ai_body.name=G-ai Avatar
+entity.gai:ai_body.name=G-ai Avatar
+item.spawn_egg.entity.gai.ai_body.name=G-ai AI Avatar Spawn Egg
+tile.gai:flag.name=Cangtian Flag
+item.gai:flag.name=Cangtian Flag
+tile.gai:five_star.name=Five-Star Red Flag
+item.gai:five_star.name=Five-Star Red Flag
+tile.gai:ai_core.name=G-ai Core Block
+item.gai:ai_body_spawn_egg.name=G-ai AI Avatar Spawn Egg

@@ -1,0 +1,18 @@
+{
+  "resource_pack_name": "G-ai",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "spawn_egg_gai_ai_body": {
+      "textures": "textures/items/spawn_egg_gai_ai_body"
+    },
+    "gai_flag": {
+      "textures": "textures/blocks/gai_flag"
+    },
+    "gai_five_star": {
+      "textures": "textures/blocks/gai_five_star"
+    },
+    "gai_ai_core": {
+      "textures": "textures/blocks/gai_ai_core"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "gai:ai_body_spawn_egg",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "spawn_egg_gai_ai_body"
+      },
+      "minecraft:spawn_egg": {
+        "entity_type": "gai:ai_body"
+      },
+      "minecraft:max_stack_size": 64
+    }
+  }
+}
