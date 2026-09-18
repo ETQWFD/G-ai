@@ -1,6 +1,6 @@
-# G-ai v2.4.0 交付报告
+# G-ai v1.5.0 交付报告（用户指定版本号）
 
-**版本**：v2.4.0（基岩版行为包/资源包 + 网易版整合包 + Java 版 Fabric/Forge 模组）
+**版本**：v1.5.0（基于 v2.4.0 的修复版，按用户指定命名）（基岩版行为包/资源包 + 网易版整合包 + Java 版 Fabric/Forge 模组）
 **交付日期**：2026-09-13
 **适用游戏**：我的世界基岩版 1.26.30.5（含内置 AI 分身）· 网易中国版（手机版/电脑版互通）· Java 版 26.2（Fabric + Forge）
 **协议**：MIT License（全文见文末）
@@ -9,7 +9,7 @@
 
 ## 〇、本版核心：彻底修复"AI 本体加载不出来 / 没作用 / 无法使用"
 
-v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI 躯体创建不出来"根因并新增网易中国版支持；v2.4.0 新增：AI 离线账号（et2416444244@outlook.com）、/scriptevent 与 /function 指令触发创建、资源包-行为包自动关联。
+v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI 躯体创建不出来"根因并新增网易中国版支持；v1.5.0 修复：①AI 躯体"像空气"根因（贴图 68% 透明→重绘完整 HIM 贴图）；②@AI 聊天无回复（双事件订阅 chatSend+messageSend、多触发词、/scriptevent gai:chat 兜底、情感人设）；③刷怪蛋（蛋+AI 图标）；④国旗可 /give 获取并进创造模式"建筑方块"分类；⑤Java 版 Tab 玩家列表显示 AI（像真人玩家）。
 
 - **根因定位**：脚本顶部**静态 import `@minecraft/server-net`**——在网易版/未开实验/模块不可用的环境里，整个脚本加载失败，AI 躯体因此完全不创建。
 - **v2.3.0 修复**：
@@ -24,20 +24,24 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI �
 
 | 文件 | 说明 |
 |---|---|
-| `G-ai-基岩版整合包-v2.4.0.mcaddon` | **基岩版整合包（.mcaddon）**：行为包（AI 脚本 + spawn_rules + functions）+ 资源包，一次导入即用 |
-| `G-ai-行为包.mcpack` | 行为包 v2.4.0（AI 躯体实体 + 内置脚本 + functions + 方块 + 配方 + 自然生成） |
-| `G-ai-资源包.mcpack` | 资源包 v2.4.0（HIM 躯体模型贴图 + 苍天旗/五星红旗贴图） |
-| `G-ai-网易版整合包-v2.4.0.zip` | **网易中国版整合包**（zip 内含 behavior/、resource/ 两文件夹，符合网易 Add-on 上传规范，手机版+电脑版互通；**不上传 GitHub，仅供发布**） |
+| `G-ai-基岩版整合包-v1.5.0.mcaddon` | **基岩版整合包（.mcaddon）**：行为包（AI 脚本 + spawn_rules + functions）+ 资源包，一次导入即用 |
+| `G-ai-行为包.mcpack` | 行为包 v1.5.0（AI 躯体实体 + 内置脚本 + functions + 方块 + 配方 + 自然生成） |
+| `G-ai-资源包.mcpack` | 资源包 v1.5.0（HIM 躯体模型贴图 + 苍天旗/五星红旗贴图） |
+| `G-ai-网易版整合包-v1.5.0.zip` | **网易中国版整合包**（zip 内含 behavior/、resource/ 两文件夹，符合网易 Add-on 上传规范，手机版+电脑版互通；**不上传 GitHub，仅供发布**） |
 | `G-ai-网易版发布文案.md` | 网易平台发布指引（作品名/简介/100 绿宝石/备注"开发者etc"/发布步骤） |
-| `G-ai-2.4.0-fabric.jar` / `G-ai-2.4.0-forge.jar` | Java 版模组（MC 26.2，Fabric + Forge，离线账号可真实使用，已修复 Block id not set 崩溃） |
+| `G-ai-1.5.0-fabric.jar` / `G-ai-1.5.0-forge.jar` | Java 版模组（MC 26.2，Fabric + Forge，离线账号可真实使用，已修复 Block id not set 崩溃） |
 | `REPORT.md` | 本报告（含 MIT 全文） |
 
 ## 二、功能与修复清单
 
 ### 1. 基岩版：AI 躯体真实创建、可对话、可干活
 - **AI 离线账号**：AI 玩家名（nameTag）= `et2416444244@outlook.com`，像玩家一样显示在头顶；
+- **躯体可见性修复**：重绘完整 HIM 贴图（全身近黑+白色双眼，标准 64x64 人形 UV），实体不再"像空气"；
+- **刷怪蛋**：AI 分身刷怪蛋（图标=蛋+AI），创造模式可取可放；
 - **进世界自动创建 AI 躯体**（`gai:ai_body`，HIM 造型），聊天框播报「苍天有眼！我乃苍天会」与坐标；
-- **手动触发**（三种均可）：`/summon gai:ai_body`（原版命令）· `/scriptevent gai:spawn`（脚本触发）· `/function gai_summon`（函数触发）；
+- **手动触发**（四种均可）：`/summon gai:ai_body`（原版命令）· `/scriptevent gai:spawn`（脚本触发）· `/scriptevent gai:chat 你想让AI干的事`（对话兜底）· `/function gai_summon`（函数触发）；
+- **@AI 聊天增强**：同时订阅 chatSend + messageSend，支持 `@ai xxx`、`@AI xxx`、`ai: xxx`、`/ai xxx` 多种写法；AI 有情绪有感情，记得玩家说过的话；
+- **国旗获取**：`/give @s gai:flag 1`（苍天旗）· `/give @s gai:five_star 1`（五星红旗），并已放入创造模式"建筑方块"分类；
 - **聊天框 `@AI 你想让我干的事`** 直接对话，AI 有自主意识（跟随玩家、周期发言、陪玩/帮忙/建家园）；
 - **永久记忆**：对话历史写入世界存档（dynamic property `gai_mem_v2`），退出游戏再进仍记得你；
 - **真实干活**：AI 回复中 `CMD:` 行作为 `/setblock` 命令真实建造（安全过滤：只允许放方块，每次≤60 块，禁止 /kill /clear /op /give 等一切破坏性命令，绝不毁服）；
@@ -68,12 +72,12 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI �
 | 网易版加载不了 / 无法使用 | ✅ 已修（网易规范打包 + min_engine 1.20 + 实验模式说明） |
 | 国旗没有加载进去 | ✅ 已修（贴图/模型/配方/语言全量齐全） |
 | Java 版启动崩溃 Block id not set | ✅ 已修（GaiFlagBlock 传 ResourceKey + setId，先注册后使用） |
-| AI 没有名字、不像玩家 | ✅ 已修（基岩版 nameTag / Java setCustomName = et2416444244@outlook.com） |
+| AI 没有名字、不像玩家 | ✅ 已修（基岩版 nameTag / Java setCustomName = et2416444244@outlook.com；Java 版新增 Tab 玩家列表假玩家显示） |
 
 ## 三、使用方法
 
 ### 基岩版（1.26.30.5）
-1. 导入 `G-ai-基岩版整合包-v2.4.0.mcaddon`（用我的世界打开），行为包会自动带起资源包，游戏内启用行为包 + 资源包；
+1. 导入 `G-ai-基岩版整合包-v1.5.0.mcaddon`（用我的世界打开），行为包会自动带起资源包，游戏内启用行为包 + 资源包；
 2. 进入世界 → 聊天框提示「苍天有眼！我乃苍天会」+ 播报 AI 躯体坐标，HIM 已在身边；
 3. 若未自动出现，输入 `/scriptevent gai:spawn` 或 `/function gai_summon` 或 `/summon gai:ai_body` 手动创建；
 4. 聊天框输入 `@AI 帮我造一座小木屋` → AI 回复并开始建造；
@@ -81,7 +85,7 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI �
 > 若提示脚本需实验功能：世界设置 → 实验 → 开启「测试版 API」；对话需要网络（内置接口，离线自动应答）。
 
 ### 网易中国版
-1. 上传 `G-ai-网易版整合包-v2.4.0.zip` 至网易开发者平台（发布步骤见发布文案；**网易版账号体系为网易通行证，国际基岩版账号不能登录网易版**）；
+1. 上传 `G-ai-网易版整合包-v1.5.0.zip` 至网易开发者平台（发布步骤见发布文案；**网易版账号体系为网易通行证，国际基岩版账号不能登录网易版**）；
 2. 玩家下载组件后，创建世界时**开启实验模式**；
 3. 进世界自动出现 AI 躯体（HIM）+ 提示「苍天有眼！我乃苍天会」，聊天框 `@AI ...` 对话干活。
 
@@ -122,7 +126,7 @@ SOFTWARE.
 
 - 基岩包：脚本语法校验通过（node --check）；实体/方块/配方/spawn_rules/manifest 全部 JSON 校验通过；.mcaddon 结构验证（行为包/资源包两文件夹 + 各自 manifest + scripts + spawn_rules）；
 - 网易包：按网易 Add-on 规范 zip（behavior/ + resource/），manifest 标注网易版、min_engine [1,20,0]；
-- Java 模组：Fabric / Forge 双 jar（v2.4.0）编译通过（JDK 25 target，Java 25 运行）；GaiFlagBlock.class 已确认包含 setId 调用；基岩包 ZIP 校验通过。
+- Java 模组：Fabric / Forge 双 jar（v1.5.0）编译通过（Tab 假玩家经反编译确认 26.2 API 签名后实现，失败静默降级）（JDK 25 target，Java 25 运行）；GaiFlagBlock.class 已确认包含 setId 调用；基岩包 ZIP 校验通过。
 
 ## 六、已知待办（诚实说明）
 
