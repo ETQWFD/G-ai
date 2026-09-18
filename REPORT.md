@@ -49,6 +49,12 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI �
 4. **命令手册**：新增 `G-ai-命令手册-v1.6.1.md`，列全基岩版 + Java 版全部可用命令（召唤/对话/获取物品/合成/其他），并与源码逐一核对（不存在的命令不写入）。
 5. 网易版同步 v1.6.1（min_engine [1,20,0]），保持"需开实验模式"。
 
+## 〇.3、v1.6.0-Forge 崩溃修复（Registry already frozen）
+
+1. **根因**：`ForgeInit` 构造函数里直接调 `GaiMod.register()`——Forge 在 mod 构造阶段（constructMod）**方块注册表已冻结**，直接 `new Block`/`Registry.register` 抛 `IllegalStateException: Registry minecraft:block is already frozen`（Fabric 注册表不冻结，所以 Fabric 版正常）。
+2. **修复**：注册拆分并按 registry 分组——`registerBlocks()/registerItems()/registerEntity()`；Forge 版在 **`RegisterEvent`（getBus(BusGroup.DEFAULT)）** 回调里按 `Registries.BLOCK/ITEM/ENTITY_TYPE` 分别注册（此时 registry 未冻结）。Fabric 版保持初始化时聚合注册不变。
+3. 26.1.2 与 26.2 两个 Forge 专用 jar 均已重建（字节码验证 RegisterEvent 注册路径生效）；Fabric 版同步重编。
+
 ## 一、本次交付物
 
 | 文件 | 说明 |
