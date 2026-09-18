@@ -30,6 +30,15 @@ v2.2.0 起 AI 完全内置进游戏（无需手机软件），v2.3.0 修复"AI �
 6. **自测**：全链路引用一致性校验 20 项全部通过（实体↔client_entity↔geometry↔render_controller↔贴图↔item↔manifest 依赖），国旗/刷怪蛋贴图非全透明，JS 语法通过，双包版本一致。
 7. **Java 版**：升级 v1.6.0，Tab 玩家列表假玩家（经反编译确认 MC 26.2 API 签名后实现，失败自动静默降级，不影响其他功能）。
 
+## 〇.1、v1.6.0 补充修复（Forge 加载失败根因 + 双版本支持）
+
+1. **Forge 版无法加载（InvalidModFileException: Missing required field mandatory in dependency）**：新版 Forge（26.x，FML 64.x）严格要求 mods.toml 的每个 `[[dependencies.gai]]` 条目必须带 `mandatory=true/false`，缺失直接拒绝整个 jar。已给 forge/minecraft 两条依赖补上 `mandatory=true`。
+2. **Forge 版分双版本**：
+   - `G-ai-1.6.0-forge-26.1.2.jar`：MC 26.1.2（Forge 64.1.3）专用，适配 26.1.2 API 差异（screen 为 `Minecraft.screen` 字段，26.2 为 `mc.gui.screen()` 方法）
+   - `G-ai-1.6.0-forge-26.2.jar`：MC 26.2（Forge 65.1.3）专用
+   - Fabric 版不变（26.2-Fabric）
+3. **你之前日志的"26.1.2-Forge"**：旧 jar 是 26.2 编译 + 缺 mandatory，所以 Forge 加载器直接报 InvalidModFileException 拒绝加载（mods 文件夹扫描阶段就失败，不是运行崩溃）。换 26.1.2 专用 jar 后正常。
+
 ## 一、本次交付物
 
 | 文件 | 说明 |
