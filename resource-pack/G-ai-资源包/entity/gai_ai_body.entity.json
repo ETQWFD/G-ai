@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "gai:ai_body",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/gai_ai_body"
+      },
+      "geometry": {
+        "default": "geometry.gai_ai_body"
+      },
+      "render_controllers": [
+        "controller.render.gai_ai_body"
+      ]
+    }
+  }
+}

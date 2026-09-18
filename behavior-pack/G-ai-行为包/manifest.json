@@ -1,0 +1,58 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "G-ai 行为包 v1.6.2",
+    "description": "G-ai AI 分身行为包 v1.6.2：进世界自动创建 AI 玩家（离线账号 et2416444244@outlook.com，HIM 躯体、自主意识、情绪、永久记忆）；/scriptevent gai:spawn、/scriptevent gai:chat 或 /function gai_summon 触发；@AI 聊天干活；苍天旗与五星红旗合成并可 /give 获取；刷怪蛋。自动带起「G-ai 资源包」。支持基岩版 1.26.30.5",
+    "uuid": "aa1439ac-2b85-4979-8c97-53b2dd567c06",
+    "version": [
+      1,
+      6,
+      2
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      40
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "7009828b-a1c0-4817-bb5d-d30645a45c3e",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "fb3a7e6d-4b4c-4d09-91c1-ec1603334ed2",
+      "entry": "scripts/main.js",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.11.0"
+    },
+    {
+      "module_name": "@minecraft/server-net",
+      "version": "1.0.0"
+    },
+    {
+      "uuid": "fc178ef9-84b0-4631-94bf-f07f4601ae12",
+      "version": [
+        1,
+        6,
+        2
+      ]
+    }
+  ]
+}

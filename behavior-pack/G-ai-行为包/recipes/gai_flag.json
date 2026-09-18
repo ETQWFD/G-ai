@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "gai:flag_recipe"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "GSB",
+      " S "
+    ],
+    "key": {
+      "G": { "item": "minecraft:gray_concrete" },
+      "S": { "item": "minecraft:stick" },
+      "B": { "item": "minecraft:black_concrete" }
+    },
+    "result": {
+      "item": "gai:flag",
+      "count": 1
+    }
+  }
+}
